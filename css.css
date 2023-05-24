@@ -17,6 +17,7 @@ margin-bottom: 15px;
     margin-left: 20px;
 }
 .lg {
+    text-decoration: none;
     max-width: 8em; /* блок занимает ширину родителя, max-width её ограничивает */
     margin-left: auto;
     margin-top: 15px;
@@ -44,6 +45,16 @@ width: 184px;
 margin-bottom: auto;
 display: flex;
 
+}
+.slesh {
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.hh {
+  border-radius: 50%;
+  margin-top: 5px;
+  margin-left: 5px;
 }
 .history {
     margin: 10px;
