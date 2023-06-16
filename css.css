@@ -13,6 +13,7 @@ body {
       align-items: flex-end;
       min-height: 100vh;
   }
+  
 .main-menu {
     display: flex;
 color:white;
@@ -265,4 +266,25 @@ a:visited {
 a:active {
   /* Цвет ссылки при клике */
   color: rgb(255, 255, 255);
+}
+.slider {
+  position: relative;
+}
+
+.slider img {
+  display: block;
+  width: 100%;
+  border-radius: 10px;
+}
+
+.slider p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.5;
 }
