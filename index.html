@@ -14,11 +14,23 @@
     <style>
         p { text-indent: 25px; }
       </style>
-    <div>
         <div class="main-menu"><img class="hh" src="https://psv4.userapi.com/c237031/u694095174/docs/d33/3ff972f06d5b/lexus.jpg?extra=J0d9v9qa8B3NdF4Na5eJ6RlvdxA9ZbhdpM41tr9-MhAT1JMNUWSG8pRbVnVepKQJv_fD2ABkpGb3jrie-6d2PTweviNePT6eM_ehd2S_qa6AHtm5C7UDIa1wrdGro1MmSFA2InKLIuUVlEw-p9DtGxM" width="auto" height="80%">
-            <div class="ae" ><b>Lexus</b></div>
-        </div>
-                    <div class="post">   
+            <div class="ae" ><b>Lexus</b>
+              <nav class="navbar">
+                <div class="navbar-container">
+                  <button class="menu-trigger">
+                    <span class="menu-text">☰</span>
+                    <span class="menu-icon"></span>
+                  </button>
+                  <ul class="menu-items">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Контакты</a></li>
+                  </ul>
+                </div>
+              </nav></div>
+        </div>           
+        <div class="post">   
                         <h1>История одной Чувашской стаи</h1> 
                         <div class="ph"><img class="photo" src="https://sun9-2.userapi.com/impg/HR7LQLLN61AnOLG9i7kI0jlSUDmkqauJUv2wSA/sXWJW3XppM8.jpg?size=808x1080&quality=95&sign=a50eb8de95d4bbe3784d5ade21ec937c&type=album">
                         <img class="photo" src="https://sun9-20.userapi.com/impg/Lfi2Hih6K9NPwVKmNIvnpAnFoJ5NwYrjKLZ2JQ/kZtFhOxxcwk.jpg?size=808x1080&quality=95&sign=2bd3249e9609a5dd79a87d47e0c7fe64&type=album">
@@ -116,6 +128,8 @@
         <img class="sam" src="https://sun9-26.userapi.com/impg/x603spiXydShx6Hl6AvP0sfMgUxvtV-A2MRZYQ/Ritw48aW6lc.jpg?size=538x595&quality=95&sign=2142b2028b4d92b69b3804ecabf636f0&type=album" width="40%">
         <p><b>Достоинства:</b>Хоть жопой жуй.</p>
         <p><b>Недостатки:</b>Не имеются.</p>
+        </div>
+    
 
         <div class="bottom-bar">
           <div class="icon active">
@@ -170,5 +184,78 @@
             });
           });
           </script>
+                 <script>const menuTrigger = document.querySelector('.menu-trigger');
+                  const menuItems = document.querySelector('.menu-items');
+                  const menuIcon = document.querySelector('.menu-icon');
+                  const menuText = document.querySelector('.menu-text');
+                  let isMenuOpen = false;
+                  let startTouchX;
+                  
+                  menuTrigger.addEventListener('touchstart', handleTouchStart);
+                  menuTrigger.addEventListener('touchmove', handleTouchMove);
+                  menuTrigger.addEventListener('touchend', handleTouchEnd);
+                  menuTrigger.addEventListener('click', toggleMenu);
+                  
+                  function handleTouchStart(event) {
+                    startTouchX = event.changedTouches[0].clientX;
+                  }
+                  
+                  function handleTouchMove(event) {
+                    const currentTouchX = event.changedTouches[0].clientX;
+                    const diff = currentTouchX - startTouchX;
+                  
+                    if (diff > 0 && isMenuOpen) {
+                      return;
+                    }
+                  
+                    if (diff < 0 && !isMenuOpen) {
+                      return;
+                    }
+                  
+                    event.preventDefault();
+                    if (diff < -50 && !isMenuOpen) {
+                      openMenu();
+                    } else if (diff > 50 && isMenuOpen) {
+                      closeMenu();
+                    }
+                  }
+                  
+                  function handleTouchEnd(event) {
+                    const currentTouchX = event.changedTouches[0].clientX;
+                    const diff = currentTouchX - startTouchX;
+                  
+                    if (diff < -50 && !isMenuOpen) {
+                      openMenu();
+                    } else if (diff > 50 && isMenuOpen) {
+                      closeMenu();
+                    }
+                  }
+                  
+                  function toggleMenu() {
+                    if (isMenuOpen) {
+                      closeMenu();
+                    } else {
+                      openMenu();
+                    }
+                  }
+                  
+                  function openMenu() {
+                    menuItems.classList.add('active');
+                    menuText.textContent = '✖';
+                    isMenuOpen = true;
+                  }
+                  
+                  function closeMenu() {
+                    menuItems.classList.remove('active');
+                    menuText.textContent = '☰';
+                    isMenuOpen = false;
+                  }
+                  
+                  document.addEventListener('touchmove', function(event) {
+                    if (isMenuOpen) {
+                      event.preventDefault();
+                    }
+                  });
+                </script>     
  </body>
 </html>
