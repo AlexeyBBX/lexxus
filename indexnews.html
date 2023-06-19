@@ -19,14 +19,97 @@
     <style>
         p { text-indent: 25px; }
       </style>
-    <div>
-        <div class="main-menu"><img class="hh" src="https://psv4.userapi.com/c237031/u694095174/docs/d33/3ff972f06d5b/lexus.jpg?extra=J0d9v9qa8B3NdF4Na5eJ6RlvdxA9ZbhdpM41tr9-MhAT1JMNUWSG8pRbVnVepKQJv_fD2ABkpGb3jrie-6d2PTweviNePT6eM_ehd2S_qa6AHtm5C7UDIa1wrdGro1MmSFA2InKLIuUVlEw-p9DtGxM" width="auto" height="80%">
-            <div class="ae" ><b>Lexus</b></div>
-            <div class="lg">  </div>
-
-        </div>
-                    <div class="post">   
-                      <div class="post">   
+        <header class="main-menu"><img class="hh" src="https://psv4.userapi.com/c237031/u694095174/docs/d33/3ff972f06d5b/lexus.jpg?extra=J0d9v9qa8B3NdF4Na5eJ6RlvdxA9ZbhdpM41tr9-MhAT1JMNUWSG8pRbVnVepKQJv_fD2ABkpGb3jrie-6d2PTweviNePT6eM_ehd2S_qa6AHtm5C7UDIa1wrdGro1MmSFA2InKLIuUVlEw-p9DtGxM" width="auto" height="80%">
+          <div class="ae" ><b>Lexus</b></div>
+          <div class="lg">  </div>
+      </header>
+      <nav class="navbar">
+          <div class="navbar-container">
+              <button class="menu-trigger">
+              <span class="menu-text">☰</span>
+              <span class="menu-icon"></span>
+              </button>
+              <ul class="menu-items">
+              <li><a href="./indexcalendar.html">Планы</a></li>
+              <li><a href="#">Предложения для сайта</a></li>
+              <li><a href="#">Контакты</a></li>
+              </ul>
+          </div>
+      </nav>
+  <script>const menuTrigger = document.querySelector('.menu-trigger');
+      const menuItems = document.querySelector('.menu-items');
+      const menuIcon = document.querySelector('.menu-icon');
+      const menuText = document.querySelector('.menu-text');
+      let isMenuOpen = false;
+      let startTouchX;
+      
+      menuTrigger.addEventListener('touchstart', handleTouchStart);
+      menuTrigger.addEventListener('touchmove', handleTouchMove);
+      menuTrigger.addEventListener('touchend', handleTouchEnd);
+      menuTrigger.addEventListener('click', toggleMenu);
+      
+      function handleTouchStart(event) {
+      startTouchX = event.changedTouches[0].clientX;
+      }
+      
+      function handleTouchMove(event) {
+      const currentTouchX = event.changedTouches[0].clientX;
+      const diff = currentTouchX - startTouchX;
+      
+      if (diff > 0 && isMenuOpen) {
+          return;
+      }
+      
+      if (diff < 0 && !isMenuOpen) {
+          return;
+      }
+      
+      event.preventDefault();
+      if (diff < -50 && !isMenuOpen) {
+          openMenu();
+      } else if (diff > 50 && isMenuOpen) {
+          closeMenu();
+      }
+      }
+      
+      function handleTouchEnd(event) {
+      const currentTouchX = event.changedTouches[0].clientX;
+      const diff = currentTouchX - startTouchX;
+      
+      if (diff < -50 && !isMenuOpen) {
+          openMenu();
+      } else if (diff > 50 && isMenuOpen) {
+          closeMenu();
+      }
+      }
+      
+      function toggleMenu() {
+      if (isMenuOpen) {
+          closeMenu();
+      } else {
+          openMenu();
+      }
+      }
+      
+      function openMenu() {
+      menuItems.classList.add('active');
+      menuText.textContent = '✖';
+      isMenuOpen = true;
+      }
+      
+      function closeMenu() {
+      menuItems.classList.remove('active');
+      menuText.textContent = '☰';
+      isMenuOpen = false;
+      }
+      
+      document.addEventListener('touchmove', function(event) {
+      if (isMenuOpen) {
+          event.preventDefault();
+      }
+      });
+  </script>
+                    <div class="post">     
                         <h1>Новости</h1> 
                         <p class="post1">
                           Одного из приматов забирают хуй знает куда и хуй знает зачем.
