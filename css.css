@@ -1,0 +1,116 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  background: linear-gradient(rgb(53, 31, 248), rgb(205, 31, 248), rgb(0, 195, 255));
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column; /* Порядок элементов - сверху вниз */
+  justify-content: space-between; /* Равномерно распределяем пространство между элементами */
+  min-height: 100vh; /* Заполняем всю высоту видимой области экрана */
+  z-index: 1;
+}
+
+.tabs {
+  background-color: #ffffff;
+  color: #fff;
+  position: absolute;
+  bottom: 0; /* Прижимаем к нижней границе экрана */
+  width: 100%; /* Занимает всю ширину экрана */
+  display: flex;
+  justify-content: space-between;
+}
+
+.tab {
+  cursor: pointer;
+}
+
+.tab-content {
+  display: none;
+  background-color: #fff;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  margin: 10px;
+  height: 760px;
+}
+
+/* Анимация для перехода между вкладками */
+.tab-active {
+  background-color: #01adfd81;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+/* Отображение активной вкладки */
+.tab-content-active {
+  display: block;
+}
+
+.imgMain {
+  width: 60px;
+  cursor: pointer;
+  outline: none;
+  transition: 0.2s all;
+}
+
+.imgMain:active {
+  transform: scale(0.88);
+  /* Scaling button to 0.98 to its original size */
+  box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+}
+
+.post {
+  text-align:justify;
+  border-radius: 10px;
+}
+
+.imgPlayers {
+  width: 150px;
+  border-radius: 100%;
+  padding: 22px;
+}
+header {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  height: 50px;
+  margin-bottom: 10px;
+  }
+
+  h1 {
+    color: rgb(204, 0, 255);
+    text-align: center;
+    padding: 10px;
+  }
+
+.players {
+}
+
+.logo {
+  width: 30%;
+  height: 60%;
+  margin: 10px;
+  display: block;
+  margin-left: auto;
+}
+
+.prokrutka {
+  height: 100%; /* высота нашего блока */
+  background: white; /* цвет фона, белый */
+  overflow-x: hidden; /* прокрутка по горизонтали */
+  overflow-y: scroll; /* прокрутка по вертикали */
+  border-radius: 10px;
+}
+
+.imgNews {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.weather {
+width: 95%;
+background-color: rgba(142, 4, 255, 0.986);
+border-radius: 10px;
+margin: 10px;
+}
